@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
-import Header from "@/components/organisms/Header";
-import GradesTable from "@/components/organisms/GradesTable";
-import Modal from "@/components/molecules/Modal";
-import FormField from "@/components/molecules/FormField";
-import Button from "@/components/atoms/Button";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
 import ApperIcon from "@/components/ApperIcon";
-import { studentService } from "@/services/api/studentService";
+import GradesTable from "@/components/organisms/GradesTable";
+import Header from "@/components/organisms/Header";
+import Select from "@/components/atoms/Select";
+import Button from "@/components/atoms/Button";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import FormField from "@/components/molecules/FormField";
+import Modal from "@/components/molecules/Modal";
 import { gradeService } from "@/services/api/gradeService";
+import { studentService } from "@/services/api/studentService";
 
 const Grades = () => {
   const { setSidebarOpen } = useOutletContext();
@@ -71,7 +72,7 @@ const Grades = () => {
     setShowForm(true);
   };
 
-  const handleEditGrade = (grade) => {
+const handleEditGrade = (grade) => {
     setSelectedGrade(grade);
     setSelectedStudent(null);
     setFormData({
@@ -81,7 +82,7 @@ const Grades = () => {
       maxScore: grade.maxScore.toString(),
       gradeType: grade.gradeType,
       semester: grade.semester,
-      date: new Date(grade.date).toISOString().split('T')[0]
+      date: grade.date || new Date().toISOString().split('T')[0]
     });
     setShowForm(true);
   };
@@ -205,8 +206,8 @@ const Grades = () => {
           >
             <option value="">Select Student</option>
             {students.map(student => (
-              <option key={student.Id} value={student.Id}>
-                {student.name} - Grade {student.gradeLevel}
+<option key={student.Id} value={student.Id}>
+                {student.Name} - Grade {student.gradeLevel}
               </option>
             ))}
           </FormField>

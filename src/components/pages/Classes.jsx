@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import ApperIcon from "@/components/ApperIcon";
 import Header from "@/components/organisms/Header";
-import Modal from "@/components/molecules/Modal";
-import FormField from "@/components/molecules/FormField";
+import Badge from "@/components/atoms/Badge";
+import Select from "@/components/atoms/Select";
 import Button from "@/components/atoms/Button";
 import Card from "@/components/atoms/Card";
-import Badge from "@/components/atoms/Badge";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
-import ApperIcon from "@/components/ApperIcon";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import FormField from "@/components/molecules/FormField";
+import Modal from "@/components/molecules/Modal";
 import { classService } from "@/services/api/classService";
 import { studentService } from "@/services/api/studentService";
 
@@ -72,14 +73,14 @@ const Classes = () => {
     setShowForm(true);
   };
 
-  const handleEditClass = (classItem) => {
+const handleEditClass = (classItem) => {
     setSelectedClass(classItem);
     setFormData({
-      name: classItem.name,
+      name: classItem.Name,
       gradeLevel: classItem.gradeLevel.toString(),
       section: classItem.section,
       capacity: classItem.capacity.toString(),
-      teacherId: classItem.teacherId
+      teacherId: classItem.teacherId || ""
     });
     setShowForm(true);
   };
@@ -200,7 +201,7 @@ const Classes = () => {
                             <ApperIcon name="BookOpen" className="h-5 w-5 text-white" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-900">{classItem.name}</h3>
+<h3 className="font-semibold text-gray-900">{classItem.Name}</h3>
                             <p className="text-sm text-gray-600">
                               Grade {classItem.gradeLevel} - Section {classItem.section}
                             </p>

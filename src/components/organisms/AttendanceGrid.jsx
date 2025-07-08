@@ -106,12 +106,12 @@ const AttendanceGrid = ({ students, attendance, onUpdateAttendance, selectedDate
                     <div className="h-8 w-8 flex-shrink-0">
                       <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
                         <span className="text-xs font-medium text-white">
-                          {student.name.charAt(0)}
+{student.Name.charAt(0)}
                         </span>
                       </div>
                     </div>
                     <div className="ml-3">
-                      <div className="text-sm font-medium text-gray-900">{student.name}</div>
+<div className="text-sm font-medium text-gray-900">{student.Name}</div>
                       <div className="text-xs text-gray-500">Grade {student.gradeLevel}</div>
                     </div>
                   </div>

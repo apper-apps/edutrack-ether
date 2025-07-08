@@ -87,12 +87,12 @@ const GradesTable = ({ students, grades, onAddGrade, onEditGrade, onDeleteGrade 
                         <div className="h-10 w-10 flex-shrink-0">
                           <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
                             <span className="text-sm font-medium text-white">
-                              {student.name.charAt(0)}
+{student.Name.charAt(0)}
                             </span>
                           </div>
                         </div>
                         <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">{student.name}</div>
+<div className="text-sm font-medium text-gray-900">{student.Name}</div>
                           <div className="text-sm text-gray-500">{student.email}</div>
                         </div>
                       </div>

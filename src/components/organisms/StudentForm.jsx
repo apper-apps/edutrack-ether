@@ -19,7 +19,7 @@ const StudentForm = ({ student, onSuccess, onCancel }) => {
   useEffect(() => {
     if (student) {
       setFormData({
-        name: student.name || "",
+name: student.Name || "",
         email: student.email || "",
         phone: student.phone || "",
         gradeLevel: student.gradeLevel || "",
